@@ -1,0 +1,33 @@
+<p>
+  <strong>Name:</strong>
+  <%= @attraction.name %>
+</p>
+
+<p>
+  <strong>Total Number of Users:</strong>
+  <%= @attraction.users.count %>
+</p>
+
+<p>
+  <strong>Ticket Requirement:</strong>
+  <%= @attraction.tickets %>
+</p>
+
+<p>
+  <strong>Height Requirement:</strong>
+  <%= pluralize(@attraction.min_height, "inch") %>
+</p>
+
+<p>
+  <strong>Nausea Rating:</strong>
+  <%= @attraction.nausea_rating %>
+</p>
+
+<p>
+  <strong>Happiness Rating:</strong>
+  <%= @attraction.happiness_rating %>
+</p>
+
+  <%= link_to 'Edit Attraction', edit_attraction_path(@attraction) %>
+
+  <%= button_to "Go on this ride", rides_path, params: {"ride[user_id]" => current_user.id, "ride[attraction_id]" => @attraction.id, :method => :post } %>
